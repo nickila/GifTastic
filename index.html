@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>GifTastic!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <div id="button-div"></div>
+    <form id="gif-form">
+        <label for="gif-input">Add a theme!</label>
+        <input type="text" id="gif-input">
+        <br>
+        <input id="add-gif" type="submit" value="Add themes!">
+    </form>
+    <div id="gif-view"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var gifArray = ["old cartoon", "fleischer cartoon", "1930s cartoon", "1930s mickey mouse", "betty boop", "felix the cat", "old popeye", "steamboat willie", "fleischer superman"];
+
+
+renderButtons();
+        function displayGifs() {
+            var gif = $(this).attr("data-gif");
+            var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=W1ZdQxBV7JvKqb1n70glDpBO3bo1h2T7&limit=10");
+            xhr.done(function (response) {
+                var results = response.data;
+                //var gifStill = data
+                //var gifAnimated = data
+                var gifSpot = $("<img>");
+                gifSpot.attr("src", results[i].images.fixed_height.url);
+
+                //gifDiv.prepend(gifSpot);
+                $("#gif-view").prepend(gifSpot);
+            });
+        }
+        function renderButtons() {
+            $("#button-div").empty();
+            for (i = 0; i < gifArray.length; i++) {
+                var a = $("<button>");
+                a.addClass("gif-button");
+                a.attr("data-gif", gifArray[i]);
+                a.text(gifArray[i]);
+                $("#button-div").append(a);
+            }
+
+        }
+        $("#add-gif").on("click", function (event) {
+            event.preventDefault();
+            var gif = $("#gif-input").val().trim();
+            gifArray.push(gif);
+            renderButtons();
+        });
+        
+        $(document).on("click", ".gif-btn", renderButtons);
+
+    </script>
+
+</body>
+
+</html>
