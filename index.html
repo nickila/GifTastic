@@ -24,18 +24,37 @@
     <script type="text/javascript">
         var gifArray = ["old cartoon", "fleischer cartoon", "toby the pup", "1930s cartoon", "1930s mickey mouse", "creepy old costumes", "old mickey mouse costume", "betty boop", "felix the cat", "koko the clown", "old popeye", "steamboat willie", "fleischer superman"];
         // Create a function that creates buttons of themes in the gifArray and display them in the #button-div
-        $("#add-gif").on("click", function (event) {
-                console.log("success on adding gif");
-                // Keeps screen from refreshing
-                event.preventDefault();
-                // 
-                var gifInput = $("#gif-input").val().trim();
-                gifArray.push(gifInput);
-                renderButtons();
-                showGif();
+        var results;
+        function showGif() {
+            // Set for loop to loop through all the results that giphy sends us
+            for (var i = 0; i < results.length; i++) {
+                //var gifDiv = $("<div class='item'>");
+                // Create an image tag to hold the gif
+                var gifSpot = $("<img>");
+                // Give the image tag a source attribute for animated (and for still)
+                gifSpot.attr("src", results[i].images.fixed_height.url);
+                // Prepend the images to #gif-view
+                //gifDiv.prepend(gifSpot);
+                $("#gif-view").prepend(gifSpot);
+                console.log(results[0]);
+            }
+        }
 
-            });
-        
+        $("#add-gif").on("click", function (event) {
+            console.log("success on adding gif");
+            // Keeps screen from refreshing
+            event.preventDefault();
+            // Create variable gifInput equal to whatever user types in.
+            var gifInput = $("#gif-input").val().trim();
+            // Push the text input into gifArray
+            gifArray.push(gifInput);
+            // Run renderButtons function again to bring all buttons up with new button
+            renderButtons();
+            // Run showGif function to show gifs of the themes of the button clicked
+            //showGif();
+            // End function that allows user to type in theme and generate new button
+        });
+        // Create function to create buttons of themes in array
         function renderButtons() {
             // Empty #button-div every time so it doesn't repeat itself
             $("#button-div").empty();
@@ -58,52 +77,32 @@
             }
             // End the renderButtons function
         }
-        // Takes user input and pushes the theme into the array and calls the renderButtons function again
-        // to create a new button with the new theme
 
 
 
+        // Call renderButtons function
         renderButtons();
-
+        // Create function that allows user to click the button with the gif theme (.gif-button) and show
+        // gifs in a div 
         $(".gif-button").on("click", function () {
             console.log("you clicked a gif button!")
+            // Create a div setting gif to whatever they click on 
             var gif = $(this).attr("data-gif");
-
+            // GET gif info from giphy.com
             var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=W1ZdQxBV7JvKqb1n70glDpBO3bo1h2T7&limit=10");
             xhr.done(function (response) {
-                var results = response.data;
+                // create variable called results to equal the info from giphy with .data after it
+                results = response.data;
                 //var gifStill = data
                 //var gifAnimated = data
+                // Create function to show all the gifs that come to us.
 
-                function showGif() {
-
-                    for (var i = 0; i < results.length; i++) {
-                        //var gifDiv = $("<div class='item'>");
-                        var gifSpot = $("<img>");
-                        gifSpot.attr("src", results[i].images.fixed_height.url);
-                        //gifDiv.prepend(gifSpot);
-                        $("#gif-view").prepend(gifSpot);
-                        console.log(results[0]);
-                    }
-                }
+                // Call function to showGif
                 showGif();
-
-
-
-
             });
-
-            
-
-
-
-
-
-
-
-
         });
-        //$(document).on("click", ".gif-btn", renderButtons);
+        
+        $(document).on("click", ".gif-btn", showGif);
 
     </script>
 
