@@ -45,6 +45,7 @@
                 $("#gif-view").prepend(gifSpot);
                 console.log(results[0]);
             }
+            $(".gif").unbind();
             $(".gif").on("click", function () {
                 console.log("shoulda worked?");
                 
