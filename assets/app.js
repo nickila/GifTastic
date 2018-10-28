@@ -81,7 +81,7 @@ function renderButtons() {
         // Create a div setting gif to whatever they click on 
         var gif = $(this).attr("data-gif");
         // GET gif info from giphy.com
-        var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=W1ZdQxBV7JvKqb1n70glDpBO3bo1h2T7&limit=10");
+        var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=W1ZdQxBV7JvKqb1n70glDpBO3bo1h2T7&limit=10");
         xhr.done(function (response) {
             // create variable called results to equal the info from giphy with .data after it
             results = response.data;
