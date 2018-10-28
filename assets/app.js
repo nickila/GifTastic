@@ -1,4 +1,4 @@
-var gifArray = ["OLD CARTOON", "FLEISCHER", "1930 CARTOON", "BETTY BOOP", "FELIX THE CAT", "KOKO THE CLOWN", "OLD POPEYE", "STEAMBOAT WILLIE"];
+var gifArray = ["ice cream", "old cartoon", "weird"];
 // Create a function that creates buttons of themes in the gifArray and display them in the #button-div
 var results;
 var still;
@@ -45,13 +45,13 @@ function showGif() {
 
 
 $("#add-gif").on("click", function (event) {
-
+if ($("#gif-input")!== "") {
     console.log("success on adding gif");
     // Keeps screen from refreshing
     event.preventDefault();
     // Create variable gifInput equal to whatever user types in.
     var gifInputReg = $("#gif-input").val().trim();
-    var gifInput = gifInputReg.toUpperCase();
+    var gifInput = gifInputReg.toLowerCase();
     $("#gif-input").val("");
 
     // Push the text input into gifArray
@@ -61,6 +61,9 @@ $("#add-gif").on("click", function (event) {
     // Run showGif function to show gifs of the themes of the button clicked
     //showGif();
     // End function that allows user to type in theme and generate new button
+} else {
+    return;
+}
 });
 // Create function to create buttons of themes in array
 function renderButtons() {

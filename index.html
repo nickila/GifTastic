@@ -7,24 +7,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:800" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
     <div class="container.fluid">
-        <div class="row">
-            <div class="col-12 add-col">
+        <div class="row header">
+            <div class="col-6 add-col">
                 <form id="gif-form">
                     <!-- <label for="gif-input">Add a theme!</label> -->
-                    <input id="add-gif" type="submit" value="ADD THEME">
-                    <input type="text" id="gif-input">
+                    <input id="add-gif" type="submit" value="add">
+                    <input type="text" id="gif-input" placeholder="a new theme...">
                 </form>
             </div>
-
-            <div id="button-div" class="col-2"></div>
-            <div class="col-8" id="gif-view"></div>
-            <div class="col-2"></div>
+            <div id="button-div" class="col-6"></div>
         </div>
+
+
+        <div class="row">
+            <div class="col-12" id="gif-view"></div>
+        </div>
+    </div>
     </div>
 
 

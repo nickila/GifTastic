@@ -1,61 +1,75 @@
 body {
-    background-color: rgb(16, 25, 42);
+    background-color: rgb(26, 25, 29);
+    /* background: linear-gradient(rgb(22, 30, 32), rgb(54, 46, 73)) fixed; */
+    font-family: 'Dosis', sans-serif;
 }
-
+.header {
+    background-color: rgb(83, 69, 126);
+    min-height: 150px;
+}
 #gif-view {
-    margin: auto 0;
     text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    /* background-color: rgb(27, 40, 66); */
+    padding: 10px;
     
 }
 img {
     
-    padding: 10px;
-    border: solid 1px rgb(255, 0, 179);
-    box-shadow: 5px 5px 15px 15px rgba(247, 158, 255, 0.15);
+    border: solid 1px rgb(228, 119, 255);
+    box-shadow: 5px 5px 15px 15px rgba(210, 28, 255, 0.1);
     cursor: pointer;
-
-    
+    margin: 10px;
 }
-/* #button-div {
-    text-align: center;
 
-} */
 .gif-button {
-background-color: rgb(233, 114, 197);
-width: 200px;
-margin-left: 30px;
-margin-top: 5px;
-
-border: none;
-color: rgb(255, 255, 255);
-font-size: 16px;
-font-family: Arial, Helvetica, sans-serif;
-cursor: pointer;
-
+    background-color: rgb(228, 119, 255);
+    margin-top:10px;
+    margin-right: 5px;
+    padding-top: -25;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    font-family: 'Dosis', sans-serif;
+    cursor: pointer;
+    line-height: 35px;
+}
+.gif-button:hover {
+    background-color: rgb(179, 89, 202);
 }
 #button-div {
-    text-align: center;
+    text-align: left;
+    float: left;
 }
 #add-gif {
-    height: 60px;
-    width: 20%;
-    background-color: rgb(233, 114, 197);
+    background-color: rgb(228, 119, 255);
     color: white;
-    border: 1px solid rgb(153, 180, 229);
-    margin-top: 25px;
-    font-size: 40px;
-    
-
-
+    margin-top: 0;
+    font-size: 49px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    min-height: 120px;
+    padding-top: 5px;
+}
+#add-gif:hover {
+    background-color: rgb(179, 89, 202);
+    cursor: pointer;
+}
+::placeholder {
+    color: rgb(233, 210, 255);
 }
 #gif-input {
-    height: 60px;
-    width: 40%;
-    font-size: 40px;
+    font-size: 50px;
     padding-left: 15px;
+    margin-top: 15px;
+    margin-bottom: auto;
+    border: none;
+    border-radius: 5px;
+    color: rgb(197, 176, 255);
+    min-height: 120px;
+    
 
 }
 .add-col {
