@@ -28,15 +28,8 @@ img {
 
 .title-page {
     font-size: 25rem;
-    color: rgb(47, 45, 54);
+    color: rgb(213, 201, 255);
     line-height: 20rem;
-}
-
-#message {
-    color: rgb(127, 114, 168);
-    margin-top: 10px;
-    font-size: 45px;
-    text-align: center;
 }
 
 .gif-button {
