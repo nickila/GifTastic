@@ -1,23 +1,42 @@
 body {
     background-color: rgb(26, 25, 29);
-    /* background: linear-gradient(rgb(22, 30, 32), rgb(54, 46, 73)) fixed; */
-    font-family: 'Dosis', sans-serif;
+    font-family: 'Rubik', sans-serif;
 }
+
 .header {
     background-color: rgb(83, 69, 126);
     min-height: 150px;
 }
+
 #gif-view {
     text-align: center;
     padding: 10px;
-    
+    margin: auto;
 }
+
+.gif-container {
+    display: inline-block;
+    position: relative; 
+}
+
 img {
-    
     border: solid 1px rgb(228, 119, 255);
     box-shadow: 5px 5px 15px 15px rgba(210, 28, 255, 0.1);
     cursor: pointer;
     margin: 10px;
+}
+
+.title-page {
+    font-size: 25rem;
+    color: rgb(47, 45, 54);
+    line-height: 20rem;
+}
+
+#message {
+    color: rgb(127, 114, 168);
+    margin-top: 10px;
+    font-size: 45px;
+    text-align: center;
 }
 
 .gif-button {
@@ -30,18 +49,21 @@ img {
     padding-left: 10px;
     border: none;
     color: rgb(255, 255, 255);
-    font-size: 40px;
-    font-family: 'Dosis', sans-serif;
+    font-size: 30px;
+    font-family: 'Rubik', sans-serif;
     cursor: pointer;
     line-height: 35px;
 }
+
 .gif-button:hover {
     background-color: rgb(179, 89, 202);
 }
+
 #button-div {
     text-align: left;
     float: left;
 }
+
 #add-gif {
     background-color: rgb(228, 119, 255);
     color: white;
@@ -52,14 +74,18 @@ img {
     border-radius: 5px;
     min-height: 120px;
     padding-top: 5px;
+    margin-left: 15px;
 }
+
 #add-gif:hover {
     background-color: rgb(179, 89, 202);
     cursor: pointer;
 }
+
 ::placeholder {
     color: rgb(233, 210, 255);
 }
+
 #gif-input {
     font-size: 50px;
     padding-left: 15px;
@@ -67,11 +93,33 @@ img {
     margin-bottom: auto;
     border: none;
     border-radius: 5px;
-    color: rgb(197, 176, 255);
+    color: rgb(176, 148, 255);
     min-height: 120px;
-    
-
 }
-.add-col {
-    text-align: center;
+
+.gif-container {
+    position: relative;
+    text-align: left;
+  }
+
+.text {
+    font-size: 18px;
+    position: absolute;
+    bottom: 30px;
+    left: 15px;
+    padding-right: 10px; 
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+}
+  
+.gif-container:hover .text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.gif-container:hover .gif {
+    visibility: visible;
+    opacity: 0.3;
 }
